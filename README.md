@@ -7,6 +7,7 @@
 • Script to add user
 ![a](https://github.com/Bouly/BackupScript/assets/94909482/9b3ace8e-71c0-499c-b83a-c33943fbcdd0)
 
+
 • Check computer state
 
 • Weakly email report
