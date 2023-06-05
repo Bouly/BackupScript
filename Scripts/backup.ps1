@@ -10,7 +10,7 @@ $YearFile = Get-Date -Format "yyyy"
 
 $ScriptPath = "C:\BackupScript\Scripts\backup.ps1"
 $UserAdmin = "AHB\Administrator"
-$dest   = "C:\BackupScript\BackupFiles\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + "\" + $list.PC
+$dest   = "C:\BackupScript\BackupFiles\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + "\"
 
 $Delimiter = ";"
 
@@ -95,7 +95,8 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
     if ($etatMachine -eq "Online") {
         #
         $source = "\\" + $list.PC + "\c$\" + $list.BackupDirectory
-        robocopy "$source" "$dest" /E /SEC /ZB
+        $desti = $dest + $list.PC
+        robocopy "$source" "$desti" /E /SEC /ZB
         #
         #Ajout de la ligne de rapport dans le fichier CSV
         $newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Oui' ; Date = $Date ; EtatDeLaSauvegarde = "Reussi" }
