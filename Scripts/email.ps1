@@ -1,16 +1,24 @@
+######################################
+##############Var Configs#############
+######################################
 $Date = Get-Date -Format dd.MM.yyyy
-$smtpServer = "157.26.80.25"
-$EmailFrom = "BackupScript@ceff.ch"
-$EmailTo = "ahmed.boulahdjar@ceff.ch"
-$emailSubject = "Rapport Backup du $Date"
-$emailBody = "Veuillez trouver ci-dessous le rapport de la backup du $Date :"
-
+#
+$smtpServer = "157.26.80.25" # Change
+$EmailFrom = "BackupScript@ceff.ch" # Change
+$EmailTo = "ahmed.boulahdjar@ceff.ch" # Change
+$emailSubject = "Rapport Backup du $Date" # Change
+$emailBody = "Veuillez trouver ci-dessous le rapport de la backup du $Date :" # Change
+#
+$UserAdmin = "AHB\Administrator" # Change
+#
+$PathDefaultRapport = "C:\BackupScript\Config\Default-BackupRapport.csv"
+$DestinationDefaultRaport = "C:\BackupScript\Config\BackupRapport.csv"
+$EmailScriptPath = '-File C:\BackupScript\email.ps1'
+#
 $DayFile = Get-Date -Format "dd"
 $MonthFile = Get-Date -Format "MM"
 $YearFile = Get-Date -Format "yyyy"
-
-$UserAdmin = "AHB\Administrator"
-
+#
 ######################################
 ############ SheduledTask ############
 ######################################
@@ -22,8 +30,8 @@ if($taskExists) { # Si elle existe alors
 
 
 # Chemin du fichier CSV
-$MovePath = "C:\backup\Rapports\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + ".csv"
-$csvPath = "C:\backup\Config\BackupRapport.csv"
+$MovePath = "C:\BackupScript\Rapports\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + ".csv"
+$csvPath = "C:\BackupScript\Config\BackupRapport.csv"
 # Fonction pour convertir les données CSV en tableau HTML avec style
 function ConvertTo-HtmlTable {
     param (
@@ -130,13 +138,13 @@ $emailBodyWithTable = "<html><body><p>$emailBody</p><br />$htmlTable</body></htm
 Send-MailMessage -To $EmailTo -From $EmailFrom -Subject $EmailSubject -Body $emailBodyWithTable -BodyAsHtml -SmtpServer $SmtpServer
 
 Move-Item -Path $csvPath -Destination $MovePath
-Copy-Item -Path C:\backup\Config\Default-BackupRapport.csv -Destination C:\backup\Config\BackupRapport.csv
+Copy-Item -Path $PathDefaultRapport -Destination $DestinationDefaultRaport -Force
 
 } else {
 
 ### Execution automatique du script
 
-$action = New-ScheduledTaskAction -Execute 'powershell' -Argument '-File C:\script\backup.ps1'
+$action = New-ScheduledTaskAction -Execute 'powershell' -Argument $EmailScriptPath
 
 $trigger = New-ScheduledTaskTrigger -Daily -At 1pm
 
