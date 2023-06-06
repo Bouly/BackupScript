@@ -3,17 +3,41 @@ A simple script to backup file with some features
 
 ## Configs
 
-Add user on BackupConfig.csv file
+**Add user on BackupConfig.csv file**
 
-PC                    The name of the computer
+### • PC 
+The name of the computer
 
-BackupDirectory       The path of the backup directory (exemple: C:\Bouly\Documentation)
+### • BackupDirectory       
+The path of the backup directory (exemple: C:\Bouly\Documentation)
 
-Day                   The backup day
+### • Day                
+The backup day
 
-Hour                  The backup hour (if the backup script start and the hour has passed)
+### • Hour                  
+The backup hour (if the backup script start and the hour has passed)
 
-Status                The script will automatically fill this field
+### • Status                
+The script will automatically fill this field
+
+**Config de backup.ps1**
+
+### • $BackupConfig
+
+LocationOfBackupScriptFolder\BackupScript\Config\BackupConfig.csv
+
+### • $BackupRapport
+
+LocationOfBackupScriptFolder\BackupScript\Config\BackupRapport.csv
+
+### • $ScriptPath
+
+
+### • $UserAdmin
+
+
+### • $dest
+
 
 ## Features
 
