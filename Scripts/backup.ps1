@@ -99,9 +99,10 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
         robocopy "$source" "$desti" /E /SEC /ZB
         #
         #Ajout de la ligne de rapport dans le fichier CSV
-        $newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Oui' ; Date = $Date ; EtatDeLaSauvegarde = "Reussi" }
-        $Services += $newRow
-        $Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+        #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Oui' ; Date = $Date ; EtatDeLaSauvegarde = "Reussi" }
+        #$Services += $newRow
+        #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+        "$Computer;Oui;$Date;Reussi;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
         #
         #Si la sauvegarde a reussi alors
         if (($LASTEXITCODE -eq 0) -or ($LASTEXITCODE -eq 1) -or ($LASTEXITCODE -eq 2) -or ($LASTEXITCODE -eq 3) -or ($LASTEXITCODE -eq 4) -or ($LASTEXITCODE -eq 5) -or ($LASTEXITCODE -eq 6) -or ($LASTEXITCODE -eq 7)) {
@@ -112,9 +113,10 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
         #Sinon
         else {
         Read-Host "La sauvegarde sur la machine $Computer a Echoue."
-        $newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Erreur" ; CodeErreur = $LASTEXITCODE }
-        $Services += $newRow
-        $Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+        #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Erreur" ; CodeErreur = $LASTEXITCODE }
+        #$Services += $newRow
+        #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+        "$Computer;Non;$Date;Erreur;$LASTEXITCODE" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
         }
 
 
@@ -125,14 +127,16 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
 
         } elseif ($etatMachine -eq "Offline") {
                 Read-Host "La machine $nomMachine est hors ligne. La sauvegarde est impossible."
-                $newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
-                $Services += $newRow
-                $Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+                #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
+                #$Services += $newRow
+                #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+                "$Computer;Non;$Date;Erreur;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
         } else {
                 Read-Host "L'Etat de la machine $nomMachine est invalide dans le fichier CSV."
-                $newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
-                $Services += $newRow
-                $Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+                #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
+                #$Services += $newRow
+                #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
+                "$Computer;Non;$Date;Erreur;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
     }
 }
 
