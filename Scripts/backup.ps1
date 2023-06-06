@@ -130,13 +130,13 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
                 #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
                 #$Services += $newRow
                 #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
-                "$Computer;Non;$Date;Erreur;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
+                "$Computer;Non;$Date;Ok;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
         } else {
                 Read-Host "L'Etat de la machine $nomMachine est invalide dans le fichier CSV."
                 #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
                 #$Services += $newRow
                 #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
-                "$Computer;Non;$Date;Erreur;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
+                "$Computer;Non;$Date;Ok;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
     }
 }
 
