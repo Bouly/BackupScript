@@ -1,6 +1,8 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
+$PathUserManager = "C:\Users\cp-20ahb\Desktop\config.csv"
+
 # Create a form
 $Form = New-Object System.Windows.Forms.Form
 $Form.Text = "Backup User Management"
@@ -106,13 +108,13 @@ $ButtonAdd.Add_Click({
     $time = $TextBoxTime.Text
 
     # Vérifier si le fichier CSV existe
-    if (!(Test-Path "C:\Users\cp-20ahb\Desktop\config.csv")) {
+    if (!(Test-Path "$PathUserManager")) {
         # Créer le fichier CSV avec les en-têtes
-        "PC;BackupDirectoryPC;Day;Hour;Status" | Out-File -FilePath "C:\Users\cp-20ahb\Desktop\config.csv" -Encoding UTF8
+        "PC;BackupDirectoryPC;Day;Hour;Status" | Out-File -FilePath "$PathUserManager" -Encoding UTF8
     }
 
     # Ajouter une nouvelle ligne dans le fichier CSV
-    "$PC;$BackupDirectory;$day;$time" | Out-File -FilePath "C:\Users\cp-20ahb\Desktop\config.csv" -Encoding UTF8 -Append
+    "$PC;$BackupDirectory;$day;$time" | Out-File -FilePath "$PathUserManager" -Encoding UTF8 -Append
 
     # Effacer les valeurs des champs
     $TextBoxName.Text = ""
@@ -141,9 +143,9 @@ $ButtonRemove.Add_Click({
     $PC = $TextBoxName.Text
 
     # Vérifier si le fichier CSV existe
-    if (Test-Path "C:\Users\cp-20ahb\Desktop\config.csv") {
+    if (Test-Path "$PathUserManager") {
         # Lire le contenu du fichier CSV
-        $users = Import-Csv -Path "C:\Users\cp-20ahb\Desktop\config.csv" -Delimiter ";"
+        $users = Import-Csv -Path "$PathUserManager" -Delimiter ";"
 
         # Rechercher l'utilisateur par nom
         $user = $users | Where-Object { $_.PC -eq $PC }
@@ -153,7 +155,7 @@ $ButtonRemove.Add_Click({
             $users = $users | Where-Object { $_.PC -ne $PC }
 
             # Enregistrer les modifications dans le fichier CSV
-            $users | Export-Csv -Path "C:\Users\cp-20ahb\Desktop\config.csv" -Delimiter ";" -NoTypeInformation -Encoding UTF8
+            $users | Export-Csv -Path "$PathUserManager" -Delimiter ";" -NoTypeInformation -Encoding UTF8
 
             # Effacer les valeurs des champs
             $TextBoxName.Text = ""
