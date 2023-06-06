@@ -1,6 +1,21 @@
 # BackupScript
+A simple script to backup file with some features
 
-## A simple script to backup file with some features
+## Configs
+
+Add user on BackupConfig.csv file
+
+PC                    The name of the computer
+
+BackupDirectory       The path of the backup directory (exemple: C:\Bouly\Documentation)
+
+Day                   The backup day
+
+Hour                  The backup hour (if the backup script start and the hour has passed)
+
+Status                The script will automatically fill this field
+
+## Features
 
 ### • A small script to add user
 
@@ -25,5 +40,5 @@ Check if the computer is Online to make the backup or not
 </p>
 
 <p align="center">
-  <img src="https://github.com/Bouly/BackupScript/assets/94909482/393542d4-49a3-4f1e-abb1-6e51d700c52c"/>
+  <img src="https://github.com/Bouly/BackupScript/assets/94909482/d5af72bf-0f2f-4fe7-b195-7a505dbcce95"/>
 </p>
