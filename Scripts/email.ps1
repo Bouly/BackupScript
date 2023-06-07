@@ -146,7 +146,7 @@ Copy-Item -Path $PathDefaultRapport -Destination $DestinationDefaultRaport -Forc
 
 $action = New-ScheduledTaskAction -Execute 'powershell' -Argument $EmailScriptPath
 
-$trigger = New-ScheduledTaskTrigger -Daily -At 1pm
+$trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Friday -At 16pm
 
 Register-ScheduledTask -TaskName "EmailBackup" -Description "Backup Email" -Trigger $trigger -User $UserAdmin -Action $action
 }

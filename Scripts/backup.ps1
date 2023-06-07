@@ -1,18 +1,19 @@
 ######################################
 ##############Var Configs#############
 ######################################
+
+$UserAdmin = "AHB\Administrator" # Change
+
+#
 $BackupConfig = "C:\BackupScript\Config\BackupConfig.csv"
 $BackupRapport = "C:\BackupScript\Config\BackupRapport.csv"
-
 $DayFile = Get-Date -Format "dd"
 $MonthFile = Get-Date -Format "MM"
 $YearFile = Get-Date -Format "yyyy"
-
 $ScriptPath = "C:\BackupScript\Scripts\backup.ps1"
-$UserAdmin = "AHB\Administrator"
 $dest   = "C:\BackupScript\BackupFiles\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + "\"
-
 $Delimiter = ";"
+#
 
 ######################################
 ######################################
