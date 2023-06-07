@@ -1,3 +1,20 @@
+<#
+
+.SYNOPSIS
+
+Automated Backup Script with PowerShell for Windows.
+
+.DESCRIPTION
+
+Copies the Bakupdirs to the Destination from a csv list of computers with some features.
+
+.LINK
+
+https://github.com/Bouly/BackupScript
+
+#>
+
+
 ######################################
 ##############Var Configs#############
 ######################################
