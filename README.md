@@ -14,6 +14,8 @@ A simple automated script to back up file with some features
 
 *If you launch backup.ps1 and email.ps1 for the first time, it will add a new task scheduler and the backup script will start automatically twice a day. The email script will start every Friday.*
 
+*If your dont have acces to the computer the backup will not work*
+
 Configure the script if needed ⤵️
 
 # Configs
