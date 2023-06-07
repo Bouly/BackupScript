@@ -1,8 +1,62 @@
 # BackupScript
+A simple script to backup file with some features
 
-## A simple script to backup file with some features
+# Configs
 
-### • A small script to add user
+## ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) **Add user on BackupConfig.csv file**
+
+**You can use UserManager Script to add user easly**
+
+### • PC 
+  The name of the computer
+
+### • BackupDirectory       
+  The path of the backup directory (exemple: C:\Bouly\Documentation)
+
+### • Day                
+  The backup day
+
+### • Hour                  
+  The backup hour (if the backup script start and the hour has passed)
+
+### • Status                
+  The script will automatically fill this field
+
+## ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) **Config de backup.ps1**
+
+### • $UserAdmin
+
+  Enter your Administrator user
+
+## ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) **Config de email.ps1**
+
+### • $smtpServer
+
+  Enter your smtp server
+
+### • EmailFrom
+
+  Enter the email sender
+
+### • EmailTo
+
+  Enter the email receiver
+
+### • emailSubject
+
+  You can change the subject email
+
+### • emailBody
+
+  You can change the body email
+
+## ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) **Config de UserManager.ps1**
+
+### • $a
+
+# Features
+
+## • A small script to add user
 
 <p align="center">
 A script to add and remove user from a CSV
@@ -12,18 +66,18 @@ A script to add and remove user from a CSV
   <img src="https://github.com/Bouly/BackupScript/assets/94909482/9b3ace8e-71c0-499c-b83a-c33943fbcdd0"/>
 </p>
   
-### • Check computer state
+## • Check computer state
 
 <p align="center">
 Check if the computer is Online to make the backup or not
 </p>
   
-### • Weakly email report
+## • Weakly email report
 
 <p align="center">
   A script to send email with backup status
 </p>
 
 <p align="center">
-  <img src="https://github.com/Bouly/BackupScript/assets/94909482/393542d4-49a3-4f1e-abb1-6e51d700c52c"/>
+  <img src="https://github.com/Bouly/BackupScript/assets/94909482/d5af72bf-0f2f-4fe7-b195-7a505dbcce95"/>
 </p>
