@@ -8,9 +8,11 @@ A simple automated script to back up file with some features
 
 1️⃣ Place the script on C:\
 
-Add user with UserManager.ps1
+2️⃣ Rename the folder BackupScript (remove -main)
 
-If you launch backup.ps1 and email.ps1 for the first time, it will add a new task scheduler and the backup script will start automatically twice a day. The email script will start every Friday.
+3️⃣ Add user with UserManager.ps1
+
+*If you launch backup.ps1 and email.ps1 for the first time, it will add a new task scheduler and the backup script will start automatically twice a day. The email script will start every Friday.*
 
 Configure the script if needed ⤵️
 
