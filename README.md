@@ -1,19 +1,29 @@
 # BackupScript
 
 <p align="center">
-A simple automated script to backup file with some features
+A simple automated script to back up file with some features
 </p>
+
+# Installation
+
+1️⃣ Place the script on C:\
+
+Add user with UserManager.ps1
+
+If you launch backup.ps1 and email.ps1 for the first time, it will add a new task scheduler and the backup script will start automatically twice a day. The email script will start every Friday.
+
+Configure the script if needed ⤵️
 
 # Configs
 
 <p align="center">
-To use the script correctly you must configure the following files
+To use the script correctly, you must configure the following files
 </p>
   
 ## ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) **Add user on BackupConfig.csv file**
 
 <p align="center">
-You can use UserManager.ps1 Script to add user easly
+You can use UserManager.ps1 Script to add user easily
 </p>
   
 ### • PC 
@@ -77,7 +87,7 @@ A script to add and remove user from a CSV
 Check if the computer is Online to make the backup or not
 </p>
   
-## ![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) **Weakly email report**
+## ![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) **Weekly email report**
 
 <p align="center">
   A script to send email with backup status
