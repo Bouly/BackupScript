@@ -1,4 +1,4 @@
-# BackupScript
+# BackupScript **[not finished]
 
 <p align="center">
 A simple automated script to back up file with some features
