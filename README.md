@@ -1,7 +1,7 @@
 # BackupScript
 
 <p align="center">
-A simple script to backup file with some features
+A simple automated script to backup file with some features
 </p>
 
 # Configs
