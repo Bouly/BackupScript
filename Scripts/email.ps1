@@ -11,9 +11,9 @@ $emailBody = "Veuillez trouver ci-dessous le rapport de la backup du $Date :" # 
 #
 $UserAdmin = "AHB\Administrator" # Change
 #
-$PathDefaultRapport = "C:\BackupScript\Config\Default-BackupRapport.csv"
-$DestinationDefaultRaport = "C:\BackupScript\Config\BackupRapport.csv"
-$EmailScriptPath = '-File C:\BackupScript\email.ps1'
+$PathDefaultRapport = "C:\BackupScript\Config\Default-BackupRapport.csv" # Change if needed
+$DestinationDefaultRaport = "C:\BackupScript\Config\BackupRapport.csv" # Change if needed
+$EmailScriptPath = '-File C:\BackupScript\email.ps1' #Change if needed
 #
 $DayFile = Get-Date -Format "dd"
 $MonthFile = Get-Date -Format "MM"

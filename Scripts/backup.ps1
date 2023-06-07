@@ -22,13 +22,14 @@ https://github.com/Bouly/BackupScript
 $UserAdmin = "AHB\Administrator" # Change
 
 #
-$BackupConfig = "C:\BackupScript\Config\BackupConfig.csv"
-$BackupRapport = "C:\BackupScript\Config\BackupRapport.csv"
+$CurrentPath = Get-Location # Stock le chemin courant dans une variable
+$BackupConfig = "C:\BackupScript\Config\BackupConfig.csv" # Change if needed
+$BackupRapport = "C:\BackupScript\Config\BackupRapport.csv" # Change if needed
 $DayFile = Get-Date -Format "dd"
 $MonthFile = Get-Date -Format "MM"
 $YearFile = Get-Date -Format "yyyy"
-$ScriptPath = "C:\BackupScript\Scripts\backup.ps1"
-$dest   = "C:\BackupScript\BackupFiles\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + "\"
+$ScriptPath = "$CurrentPath\backup.ps1"
+$dest   = "C:\BackupScript\BackupFiles\" + $DayFile + "-" + $MonthFile + "-" + $YearFile + "\" # Change if needed
 $Delimiter = ";"
 #
 

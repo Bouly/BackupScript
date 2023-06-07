@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-$PathUserManager = "C:\Users\cp-20ahb\Desktop\config.csv"
+$PathUserManager = "C:\BackupScript\Config\BackupConfig.csv" # Change if needed
 
 # Create a form
 $Form = New-Object System.Windows.Forms.Form
