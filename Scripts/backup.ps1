@@ -155,7 +155,7 @@ $csvconfigs = import-csv -Path $BackupConfig -Delimiter $Delimiter
                 #$newRow = New-Object PsObject -Property @{ Computer = $Computer ; MoyenEnService = 'Non' ; Date = $Date ; EtatDeLaSauvegarde = "Ok" }
                 #$Services += $newRow
                 #$Services | Export-Csv -Path $BackupRapport -NoTypeInformation -Delimiter $Delimiter
-                "$Computer;Non;$Date;Ok;-" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
+                "$Computer;Non;$Date;Erreur;CsvErreur" | Out-File -FilePath "$BackupRapport" -Encoding UTF8 -Append
     }
 }
 
